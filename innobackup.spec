@@ -18,6 +18,9 @@ copy of your database, as if the copy were taken at a precise point in
 time. InnoDB Hot Backup is also the ideal method of setting up new
 slaves if you use the MySQL replication on InnoDB tables.
 
+The program documentation is available at
+<http://www.innodb.com/manual.php>.
+
 %prep
 %setup -q -c -T
 gzip -dc %{SOURCE0} > %{name}
