@@ -1,6 +1,6 @@
 Summary:	InnoDB Hot Backup
 Name:		ibbackup
-Version:	3.0
+Version:	3.0.0
 Release:	1
 License:	restricted (http://www.innodb.com/hotbackuplicense.php)
 Group:		Applications/Databases
