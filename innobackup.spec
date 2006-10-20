@@ -5,6 +5,7 @@ Version:	3.0.0
 Release:	1.1
 License:	restricted (http://www.innodb.com/hotbackuplicense.php) / GPL v2 (innobackup)
 Group:		Applications/Databases
+# Source0Download:	http://www.innodb.com/order.php
 Source0:	%{name}.gz
 # NoSource0-md5:	dc2c361ed2c9af01b189e3b11b9d3bc2
 NoSource:	0
