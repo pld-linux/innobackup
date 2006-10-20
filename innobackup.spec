@@ -20,7 +20,7 @@ slaves if you use the MySQL replication on InnoDB tables.
 
 %prep
 %setup -q -c -T
-install %{SOURCE0} %{name}
+gzip -dc %{SOURCE0} > %{name}
 
 %install
 rm -rf $RPM_BUILD_ROOT
