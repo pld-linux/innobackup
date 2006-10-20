@@ -7,6 +7,7 @@ Group:		Applications/Databases
 Source0:	%{name}.gz
 # NoSource0-md5:	dc2c361ed2c9af01b189e3b11b9d3bc2
 NoSource:	0
+Source1:	%{name}.conf
 URL:		http://www.innodb.com/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,8 +29,9 @@ gzip -dc %{SOURCE0} > %{name}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}}
 install %{name} $RPM_BUILD_ROOT%{_bindir}
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -37,3 +39,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ibbackup
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ibbackup.conf
