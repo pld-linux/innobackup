@@ -5,7 +5,8 @@ Release:	1
 License:	restricted (http://www.innodb.com/hotbackuplicense.php)
 Group:		Applications/Databases
 Source0:	%{name}.gz
-# Source0-md5:	dc2c361ed2c9af01b189e3b11b9d3bc2
+# NoSource0-md5:	dc2c361ed2c9af01b189e3b11b9d3bc2
+NoSource:	0
 URL:		http://www.innodb.com/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
