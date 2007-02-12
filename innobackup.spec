@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	InnoDB Hot Backup
-Summary(pl):	Gor±cy backup InnoDB
+Summary(pl.UTF-8):   GorÄ…cy backup InnoDB
 Name:		ibbackup
 Version:	3.0.0
 Release:	1.1
@@ -29,18 +29,18 @@ slaves if you use the MySQL replication on InnoDB tables.
 The program documentation is available at
 <http://www.innodb.com/manual.php>.
 
-%description -l pl
-InnoDB Hot Backup to idealne rozwi±zanie dla tworzenia w czasie
+%description -l pl.UTF-8
+InnoDB Hot Backup to idealne rozwiÄ…zanie dla tworzenia w czasie
 rzeczywistym kopii zapasowych tabel w MySQL oraz zestawiania
-replikacji. Umo¿liwia tworzenie kopii zapasowych dzia³aj±cej bazy
-danych InnoDB pod MySQL-em bez ustawiania ¿adnych blokad czy
-przeszkadzania w normalnym przetwarzaniu baz danych. Otrzymuje siê
-spójn± kopiê bazy danych, tak, jakby by³a wykonana w dok³adnym punkcie
-w czasie. InnoDB Hot Backup to tak¿e idealna metoda zestawiania nowych
-serwerów podrzêdnych w przypadku u¿ywania replikacji MySQL-a na
+replikacji. UmoÅ¼liwia tworzenie kopii zapasowych dziaÅ‚ajÄ…cej bazy
+danych InnoDB pod MySQL-em bez ustawiania Å¼adnych blokad czy
+przeszkadzania w normalnym przetwarzaniu baz danych. Otrzymuje siÄ™
+spÃ³jnÄ… kopiÄ™ bazy danych, tak, jakby byÅ‚a wykonana w dokÅ‚adnym punkcie
+w czasie. InnoDB Hot Backup to takÅ¼e idealna metoda zestawiania nowych
+serwerÃ³w podrzÄ™dnych w przypadku uÅ¼ywania replikacji MySQL-a na
 tabelach InnoDB.
 
-Dokumentacja programu dostêpna jest pod
+Dokumentacja programu dostÄ™pna jest pod
 <http://www.innodb.com/manual.php>.
 
 %prep
