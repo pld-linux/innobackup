@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	InnoDB Hot Backup
-Summary(pl.UTF-8):   Gorący backup InnoDB
+Summary(pl.UTF-8):	Gorący backup InnoDB
 Name:		ibbackup
 Version:	3.0.0
 Release:	1.1
