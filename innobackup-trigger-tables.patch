@@ -1,0 +1,45 @@
+--- ibbackup-3.0.0/innobackup~	2007-02-28 16:40:41.998069815 +0200
++++ ibbackup-3.0.0/innobackup	2007-02-28 16:38:53.000000000 +0200
+@@ -206,8 +206,8 @@
+ puts the backup in the given directory (which must not exist).
+ This command makes a complete backup of all MyISAM and InnoDB
+ tables and indexes in all databases.  The created backup contains
+-.frm, .MRG, .MYD, .MYI, and InnoDB data and log files.  The MY.CNF
+-options file defines the location of the database.  This command
++.frm, .MRG, .MYD, .MYI, .TRN, .TRG, and InnoDB data and log files.
++The MY.CNF options file defines the location of the database.  This command
+ connects to the MySQL server using mysql client program, and runs
+ ibbackup (InnoDB Hot Backup program) as a child process.
+ 
+@@ -368,7 +368,7 @@
+     mysql_check();
+     mysql_lockall();
+ 
+-    # backup .frm, .MRG, .MYD and .MYI files
++    # backup .frm, .MRG, .MYD, .MYI, .TRN and .TRG files
+     backup_files();
+ 
+     # resume ibbackup and wait till it has finished
+@@ -1323,11 +1323,11 @@
+     my @list;
+     my $file;
+     my $database;
+-    my $wildcard = '*.{frm,MYD,MYI,MRG}';
++    my $wildcard = '*.{frm,MYD,MYI,MRG,TRG,TRN}';
+ 
+     opendir(DIR, $source_dir) 
+         || Die "Can't open directory '$source_dir': $!\n";
+-    print "\n$prefix Starting to backup .frm, .MRG, .MYD and .MYI files in \n";
++    print "\n$prefix Starting to backup .frm, .MRG, .MYD, .MYI, .TRN and .TRG files in \n";
+     print "$prefix subdirectories of '$source_dir'\n";
+     # loop through all database directories
+     while (defined($database = readdir(DIR))) {
+@@ -1366,7 +1366,7 @@
+         }
+     }
+     closedir(DIR);
+-    print "$prefix Finished backing up .frm, .MRG, .MYD and .MYI files\n\n";
++    print "$prefix Finished backing up .frm, .MRG, .MYD, .MYI, .TRN and .TRG files\n\n";
+ }
+ 
+ 
