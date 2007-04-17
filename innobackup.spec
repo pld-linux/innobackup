@@ -3,12 +3,12 @@ Summary:	InnoDB Hot Backup
 Summary(pl.UTF-8):	Gorący backup InnoDB
 Name:		ibbackup
 Version:	3.0.0
-Release:	2
+Release:	3
 License:	restricted (http://www.innodb.com/hotbackuplicense.php) / GPL v2 (innobackup)
 Group:		Applications/Databases
 # Source0Download:	http://www.innodb.com/order.php
-Source0:	%{name}.gz
-# NoSource0-md5:	3976a20aec1aff04e2a9b1c5bd898366
+Source0:	%{name}
+# NoSource0-md5:	e0d46c6fb2627ce13d540d4efa935551
 NoSource:	0
 Source1:	http://www.innodb.com/innobackup.txt
 # Source1-md5:	50c91492fd85838598761476712dea3b
@@ -46,7 +46,7 @@ Dokumentacja programu dostępna jest pod
 
 %prep
 %setup -q -c -T
-gzip -dc %{SOURCE0} > %{name}
+cp %{SOURCE0} %{name}
 install %{SOURCE1} innobackup
 %patch0 -p1
 
