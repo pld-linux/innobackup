@@ -1,21 +1,17 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	InnoDB Hot Backup
 Summary(pl.UTF-8):	Gorący backup InnoDB
-Name:		ibbackup
-Version:	3.0.0
-Release:	3
-License:	restricted (http://www.innodb.com/hotbackuplicense.php) / GPL v2 (innobackup)
+Name:		innobackup
+Version:	1.4.0
+Release:	1
+License:	GPL v2
 Group:		Applications/Databases
-# Source0Download:	http://www.innodb.com/order.php
-Source0:	%{name}
-# NoSource0-md5:	e0d46c6fb2627ce13d540d4efa935551
-NoSource:	0
-Source1:	http://www.innodb.com/innobackup.txt
-# Source1-md5:	50c91492fd85838598761476712dea3b
-Source2:	%{name}.conf
-Patch0:		innobackup-trigger-tables.patch
+Source0:	http://www.innodb.com/download/%{name}-%{version}
+# Source0-md5:	4bdeba7e9964cfe6f18c21df5eef8159
 URL:		http://www.innodb.com/
 BuildRequires:	rpm-perlprov >= 4.1-13
+Requires:	ibbackup
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,9 +22,6 @@ locks or disturbing normal database processing. You get a consistent
 copy of your database, as if the copy were taken at a precise point in
 time. InnoDB Hot Backup is also the ideal method of setting up new
 slaves if you use the MySQL replication on InnoDB tables.
-
-The program documentation is available at
-<http://www.innodb.com/manual.php>.
 
 %description -l pl.UTF-8
 InnoDB Hot Backup to idealne rozwiązanie dla tworzenia w czasie
@@ -41,27 +34,18 @@ w czasie. InnoDB Hot Backup to także idealna metoda zestawiania nowych
 serwerów podrzędnych w przypadku używania replikacji MySQL-a na
 tabelach InnoDB.
 
-Dokumentacja programu dostępna jest pod
-<http://www.innodb.com/manual.php>.
-
 %prep
 %setup -q -c -T
-cp %{SOURCE0} %{name}
-install %{SOURCE1} innobackup
-%patch0 -p1
+install %{SOURCE0} %{name}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}}
-install %{name} $RPM_BUILD_ROOT%{_bindir}/ibbackup
-install innobackup $RPM_BUILD_ROOT%{_bindir}/innobackup
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}.conf
+install -d $RPM_BUILD_ROOT%{_bindir}
+install %{name} $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/ibbackup
 %attr(755,root,root) %{_bindir}/innobackup
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ibbackup.conf
