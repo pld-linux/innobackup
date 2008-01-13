@@ -1,6 +1,5 @@
 %include	/usr/lib/rpm/macros.perl
-Summary:	InnoDB Hot Backup
-Summary(pl.UTF-8):	Gorący backup InnoDB
+Summary:	Perl script which automates the backup of both MyISAM and InnoDB tables
 Name:		innobackup
 Version:	1.4.0
 Release:	1
@@ -8,7 +7,7 @@ License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.innodb.com/download/%{name}-%{version}
 # Source0-md5:	4bdeba7e9964cfe6f18c21df5eef8159
-URL:		http://www.innodb.com/
+URL:		http://www.innodb.com/hot-backup/
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	ibbackup
 BuildArch:	noarch
@@ -22,6 +21,9 @@ locks or disturbing normal database processing. You get a consistent
 copy of your database, as if the copy were taken at a precise point in
 time. InnoDB Hot Backup is also the ideal method of setting up new
 slaves if you use the MySQL replication on InnoDB tables.
+
+innobackup is a Perl script which automates the backup of both MyISAM and
+InnoDB type tables and .frm files. It is an adaptable front-end for ibbackup.
 
 %description -l pl.UTF-8
 InnoDB Hot Backup to idealne rozwiązanie dla tworzenia w czasie
