@@ -1,5 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perl script which automates the backup of both MyISAM and InnoDB tables
+Summary(pl.UTF-8):	Skrypt Perla automatyzujący tworzenie kopii zapasowych tabel MyISAM i InnoDB
 Name:		innobackup
 Version:	1.4.0
 Release:	1
@@ -35,6 +36,10 @@ spójną kopię bazy danych, tak, jakby była wykonana w dokładnym punkcie
 w czasie. InnoDB Hot Backup to także idealna metoda zestawiania nowych
 serwerów podrzędnych w przypadku używania replikacji MySQL-a na
 tabelach InnoDB.
+
+innobackup to skrypt Perla automatyzujący tworzenie kopii zapasowych
+tabel typu MyISAM i InnoDB oraz plików .frm. Jest to adaptowalny
+frontend dla programu ibbackup.
 
 %prep
 %setup -q -c -T
