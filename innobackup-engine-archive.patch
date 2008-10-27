@@ -32,7 +32,7 @@
      my $file;
      my $database;
 -    my $wildcard = '*.{frm,MYD,MYI,MRG,TRG,TRN,opt}';
-+    my $wildcard = '*.{frm,arm,MYD,MYI,MRG,TRG,TRN,ARZ,opt}';
++    my $wildcard = '*.{frm,MYD,MYI,MRG,TRG,TRN,ARM,ARZ,opt}';
  
      opendir(DIR, $source_dir) 
          || Die "Can't open directory '$source_dir': $!\n";
@@ -49,7 +49,7 @@
  
      $now = current_time();
 -    print "$now  $prefix Finished backing up .frm, .MRG, .MYD, .MYI, .TRG, .TRN, and .opt files\n\n";
-+    print "$now  $prefix Finished backing up .frm, .arz, .MRG, .MYD, .MYI, .TRG, .TRN, .ARZ and .opt files\n\n";
++    print "$now  $prefix Finished backing up .frm, .MRG, .MYD, .MYI, .TRG, .TRN, .ARM, .ARZ and .opt files\n\n";
  }
  
  
