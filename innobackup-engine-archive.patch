@@ -1,0 +1,55 @@
+--- innobackup-1.5.0/innobackup~	2008-10-27 17:45:18.000000000 +0200
++++ innobackup-1.5.0/innobackup	2008-10-27 17:45:20.954548512 +0200
+@@ -224,7 +224,7 @@
+ command makes a complete backup of all MyISAM and InnoDB tables and
+ indexes in all databases or in all of the databases specified with the
+ --databases option.  The created backup contains .frm, .MRG, .MYD,
+-.MYI., .TRG, .TRN, .opt, and InnoDB data and log files.  The MY.CNF
++.MYI., .TRG, .TRN, .ARM, .ARZ, .opt, and InnoDB data and log files.  The MY.CNF
+ options file defines the location of the database.  This command
+ connects to the MySQL server using mysql client program, and runs
+ ibbackup (InnoDB Hot Backup program) as a child process.
+@@ -416,7 +416,7 @@
+     mysql_check();
+     mysql_lockall();
+ 
+-    # backup .frm, .MRG, .MYD, .MYI, .TRG, .TRN, and .opt files
++    # backup .frm, .MRG, .MYD, .MYI, .TRG, .TRN, .ARM, .ARZ and .opt files
+     backup_files();
+ 
+     # resume ibbackup and wait till it has finished
+@@ -566,7 +566,7 @@
+     opendir(DIR, $backup_dir) 
+         || Die "Can't open directory '$backup_dir': $!\n";
+     print "$prefix Starting to copy MyISAM tables, indexes,\n"; 
+-    print "$prefix .MRG, .TRG, .TRN, .opt, and .frm files\n";
++    print "$prefix .MRG, .TRG, .TRN, .ARM, .ARZ, .opt, and .frm files\n";
+     print "$prefix in '$backup_dir'\n";
+     print "$prefix back to original data directory '$orig_datadir'\n";
+     while (defined($file = readdir(DIR))) {
+@@ -1439,13 +1439,13 @@
+     my @list;
+     my $file;
+     my $database;
+-    my $wildcard = '*.{frm,MYD,MYI,MRG,TRG,TRN,opt}';
++    my $wildcard = '*.{frm,arm,MYD,MYI,MRG,TRG,TRN,ARZ,opt}';
+ 
+     opendir(DIR, $source_dir) 
+         || Die "Can't open directory '$source_dir': $!\n";
+     $now = current_time();
+-    print "\n$now  $prefix Starting to backup .frm, .MRG, .MYD, .MYI,\n";
+-    print "$prefix .TRG, .TRN, and .opt files in\n";
++    print "\n$now  $prefix Starting to backup .frm, .arz, .MRG, .MYD, .MYI,\n";
++    print "$prefix .TRG, .TRN, .ARZ and .opt files in\n";
+     print "$prefix subdirectories of '$source_dir'\n";
+     # loop through all database directories
+     while (defined($database = readdir(DIR))) {
+@@ -1488,7 +1488,7 @@
+     closedir(DIR);
+ 
+     $now = current_time();
+-    print "$now  $prefix Finished backing up .frm, .MRG, .MYD, .MYI, .TRG, .TRN, and .opt files\n\n";
++    print "$now  $prefix Finished backing up .frm, .arz, .MRG, .MYD, .MYI, .TRG, .TRN, .ARZ and .opt files\n\n";
+ }
+ 
+ 
