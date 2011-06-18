@@ -2,12 +2,12 @@
 Summary:	Perl script which automates the backup of both MyISAM and InnoDB tables
 Summary(pl.UTF-8):	Skrypt Perla automatyzujący tworzenie kopii zapasowych tabel MyISAM i InnoDB
 Name:		innobackup
-Version:	1.5.0
-Release:	2
+Version:	1.5.2
+Release:	1
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.innodb.com/download/%{name}-%{version}
-# Source0-md5:	435332f339bd3dc5b13319c4f0a00bd5
+# Source0-md5:	859eda702913228709c0f843c2884405
 URL:		http://www.innodb.com/hot-backup/
 # http://bugs.mysql.com/bug.php?id=40351
 Patch0:		%{name}-engine-archive.patch
