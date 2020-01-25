@@ -1,6 +1,5 @@
 # TODO
 # - does it work with .ibd files (innodb_file_per_table)
-%include	/usr/lib/rpm/macros.perl
 Summary:	Perl script which automates the backup of both MyISAM and InnoDB tables
 Summary(pl.UTF-8):	Skrypt Perla automatyzujący tworzenie kopii zapasowych tabel MyISAM i InnoDB
 Name:		innobackup
